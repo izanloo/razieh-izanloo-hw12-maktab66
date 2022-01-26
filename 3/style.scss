@@ -1,0 +1,13 @@
+$x:50;
+$y:130;
+$unit:0%;
+@mixin divide($x,$y,$pseudo:false) {
+    .test{
+        
+    width: 100%;
+    padding-top:($y/$x) + $unit;
+    border:1px solid red;
+    }
+}
+
+    @include divide($x,$y);
