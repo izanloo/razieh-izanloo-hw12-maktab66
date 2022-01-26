@@ -1,0 +1,109 @@
+//colors
+$white:#ffff;
+$gray-border:#bfbbbb;
+$green:#05a86e;
+$gray:#f2f2f2;
+$modal-bg:#c0c8c1;
+$red:rgb(243, 11, 11);
+$black:rgb(8, 0, 0);
+
+//responsive
+$breakpoints:320 100%, 576 100%, 768 100%, 992 100%, 1200 100%;
+@mixin responsive($size){
+    @media (min-width: #{$size}px) {
+    @content;
+
+    }
+}
+
+ @each $size, $max-width in $breakpoints{
+    @include responsive($size){
+    .input-form {
+        width: $max-width !important;
+          }
+    }
+ }
+    
+ //style-form
+ body{
+    background-color:$gray;
+    display: flex;
+    justify-content: center;
+}
+.form{
+    width: 100%;
+    padding: 50px;
+   
+    .input-form{
+      height: 42px;
+      border:1px solid $gray-border;
+      border-radius:3px;
+      padding: 10px;
+      margin-top: -7px;
+    }
+  
+  .submit{
+      background-color:$green;
+      border-radius: 5px;
+      border: 0px;
+      padding: 10px;
+      color:$white;
+      margin-top: 15px;
+   }
+}
+textarea{
+    height: 150px !important;
+}
+label{
+  padding: 16px 0px 15px;
+}
+
+
+///modal
+#open-modal {
+  display: none;
+  position: fixed;
+  background-color:$modal-bg;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  opacity: 0.5;
+  pointer-events: none;
+  transition: all 0.3s;
+  &:target {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  & > div {
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2em;
+    background:$white;
+    border-radius: 5px;
+  }
+  
+}
+
+.modal-close {
+  color:$red;
+  line-height: 50px;
+  font-size: 80%;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 70px;
+  text-decoration: none;
+  &:hover {
+    color:$black;
+  }
+}
+
+
+
